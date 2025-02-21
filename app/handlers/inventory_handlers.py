@@ -3,11 +3,10 @@ from aiogram import Router, F, Bot
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
-from system import *
+from system.system import *
 import app.main.keyboards as kb
 import app.content.inventory as inventory
 import app.main.control_messages as cm
-from asyncio import sleep
 
 router = Router()
 

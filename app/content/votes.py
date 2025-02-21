@@ -1,6 +1,4 @@
-from operator import truediv
-
-import system
+from system import system
 
 from aiogram.types import FSInputFile
 

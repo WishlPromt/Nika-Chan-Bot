@@ -1,4 +1,4 @@
-from system import *
+from system.system import *
 
 def get_inventory(user):
     check_user(user)

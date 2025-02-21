@@ -1,5 +1,6 @@
 import app.content.inventory as inventory
-import system as sys
+from system import system as sys
+
 
 def fisting(user):
     sys.check_user(user)

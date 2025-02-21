@@ -4,7 +4,6 @@ from aiogram.filters import CommandStart, Command
 
 import app.content.votes as votes
 import app.main.keyboards as kb
-import system
 import app.main.control_messages as cm
 
 router = Router()

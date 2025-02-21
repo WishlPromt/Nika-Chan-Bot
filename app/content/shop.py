@@ -1,5 +1,5 @@
 import app.main.keyboards as kb
-from system import *
+from system.system import *
 
 
 async def cmd_shop_catalog(catalog, user):

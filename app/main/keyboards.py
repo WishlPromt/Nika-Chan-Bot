@@ -3,7 +3,7 @@ from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
 
 from app.content.inventory import *
-from system import load_base, load_items, load_votes_base
+from system.system import load_base, load_items, load_votes_base
 
 items_base = load_items()
 

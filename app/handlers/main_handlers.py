@@ -9,7 +9,7 @@ import app.content.profile as profile
 import app.content.items_using as iu
 import app.main.control_messages as cm
 
-from system import *
+from system.system import *
 from asyncio import sleep
 from random import choice
 
