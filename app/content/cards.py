@@ -1,7 +1,7 @@
 import os
-import system
+from system import system
 
-from config import rares
+from system.system import rares
 from aiogram.types import FSInputFile, InputMediaPhoto, InputMediaAnimation
 
 def change_ids():

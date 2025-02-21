@@ -3,7 +3,7 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
-from config import TOKEN
+from system.config import TOKEN
 from app.handlers.main_handlers import router as main_router
 from app.handlers.cards_handlers import router as cards_router
 from app.handlers.inventory_handlers import router as inventory_router

@@ -2,8 +2,8 @@ from aiogram import F, Router, Bot
 from aiogram.types import Message, CallbackQuery, InputMediaPhoto, InputMediaAnimation
 from aiogram.filters import Command
 
-import system
-from config import rares
+from system import system
+from system.system import rares
 import app.content.cards as cardslib
 import app.main.keyboards as kb
 import app.content.inventory as inventory

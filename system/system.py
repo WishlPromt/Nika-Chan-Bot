@@ -5,21 +5,21 @@ import string
 import random
 
 def load_base(chat_id):
-    with open('data/DataBase.json', 'r', encoding='utf-8') as file:
+    with open('../data/DataBase.json', 'r', encoding='utf-8') as file:
         base = json.load(file)
         file.close()
         return base[chat_id]
 
 
 def load_fullbase():
-    fullbase = json.load(open('data/DataBase.json', 'r', encoding='utf-8'))
+    fullbase = json.load(open('../data/DataBase.json', 'r', encoding='utf-8'))
     return fullbase
 
 def load_votes_base():
-    return json.load(open('data/VotesBase.json', 'r', encoding='utf-8'))
+    return json.load(open('../data/VotesBase.json', 'r', encoding='utf-8'))
 
 def save_votes_base(base):
-    with open('data/VotesBase.json', 'w', encoding='utf-8') as file:
+    with open('../data/VotesBase.json', 'w', encoding='utf-8') as file:
         json.dump(base, file, indent=4, ensure_ascii=False)
         file.close()
 
@@ -28,18 +28,18 @@ def save_base(base, chat_id):
     fullbase = load_fullbase()
 
     fullbase[chat_id] = base
-    with open('data/DataBase.json', 'w', encoding='utf-8') as file:
+    with open('../data/DataBase.json', 'w', encoding='utf-8') as file:
         json.dump(fullbase, file, indent=4, ensure_ascii=False)
         file.close()
 
 def save_fullbase(base):
-    with open('data/DataBase.json', 'w', encoding='utf-8') as file:
+    with open('../data/DataBase.json', 'w', encoding='utf-8') as file:
         json.dump(base, file, indent=4, ensure_ascii=False)
         file.close()
 
 
 def load_items():
-    with open('data/items.json', 'r', encoding='utf-8') as file:
+    with open('../data/items.json', 'r', encoding='utf-8') as file:
         items_base = json.load(file)
         return items_base
 
