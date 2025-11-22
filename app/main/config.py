@@ -5,6 +5,6 @@ load_dotenv()
 
 class Config:
     TOKEN = os.getenv('TOKEN')
-    CARD_RARES = os.getenv('RARES')
+    CARD_RARES = ['common', 'rare', 'epic', 'legendary', 'secret']
 
 config = Config
