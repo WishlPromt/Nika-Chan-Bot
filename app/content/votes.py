@@ -1,9 +1,9 @@
-from main_app import system
+from app.main import system
 
 from aiogram.types import FSInputFile, Message
 
-import app.main.keyboards as kb
-import app.main.control_messages as cm
+import app.content.keyboards as kb
+import app.handlers.control_messages as cm
 
 
 def register_voting(chat_id, pm_id: int, starttime, max_votes=3):

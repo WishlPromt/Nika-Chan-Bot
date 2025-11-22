@@ -2,19 +2,18 @@ from aiogram import F, Router, Bot
 from aiogram.types import Message, CallbackQuery, FSInputFile
 from aiogram.filters import CommandStart, Command
 
-import app.main.keyboards as kb
+import app.content.keyboards as kb
 import app.content.shop as shop
 import app.content.social_credits as sc
 import app.content.profile as profile
 import app.content.items_using as iu
-import app.main.control_messages as cm
+import app.handlers.control_messages as cm
 
-from main_app.system import *
+from app.main.system import *
 from asyncio import sleep
 from random import choice
 
 router = Router()
-
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):

@@ -3,14 +3,14 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
-from main_app.config import TOKEN
+from config import config
 from app.handlers.main_handlers import router as main_router
 from app.handlers.cards_handlers import router as cards_router
 from app.handlers.inventory_handlers import router as inventory_router
 from app.handlers.votes_handlers import router as votes_router
 from app.handlers.chat_handlers import router as chat_router
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=config.TOKEN)
 dp = Dispatcher()
 
 async def main():

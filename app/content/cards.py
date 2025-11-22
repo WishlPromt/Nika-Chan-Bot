@@ -1,8 +1,8 @@
 import os
-from main_app import system
 
-from main_app.config import rares
-from aiogram.types import FSInputFile, InputMediaPhoto, InputMediaAnimation
+from app.main import system
+from app.main.config import config
+from aiogram.types import FSInputFile
 
 def change_ids():
     base = system.load_fullbase()
@@ -18,7 +18,7 @@ def change_ids():
 
 
 def load_card(card, rare):
-    if rare not in rares:
+    if rare not in config.CARD_RARES:
         return False
 
     card = card.strip()
@@ -58,7 +58,7 @@ def get_card_rare(card):
         card = card[:card.find('.')]
 
     try:
-        for rare in rares:
+        for rare in config.CARD_RARES:
             for c in os.listdir(f'{system.get_base_path()}/cards/{rare}'):
                 if card == c[:c.find('.')]:
                     return rare

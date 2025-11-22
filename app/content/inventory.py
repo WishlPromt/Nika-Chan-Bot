@@ -1,4 +1,4 @@
-from main_app.system import *
+from app.main.system import *
 
 def get_inventory(user):
     check_user(user)
@@ -57,8 +57,19 @@ def sell_item(item, user):
 
     for catalog in items_base:
         if item in items_base[catalog]:
+            itempath = base[user['id']]['inventory'][catalog]
+            if item not in itempath:
+                return False
+
             base[user['id']]['credits'] += int(items_base[catalog][item]['price'] / 2)
-            base[user['id']]['inventory'][catalog].remove(item)
+
+            if isinstance(itempath, list):
+                itempath.remove(item)
+            elif isinstance(itempath, dict):
+                del itempath[item]
+            else:
+                return False
+
             save_base(base, user['chat_id'])
             return True
 

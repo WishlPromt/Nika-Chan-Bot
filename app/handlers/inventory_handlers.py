@@ -3,13 +3,12 @@ from aiogram import Router, F, Bot
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 
-from main_app.system import *
-import app.main.keyboards as kb
+from app.main.system import *
+import app.content.keyboards as kb
 import app.content.inventory as inventory
-import app.main.control_messages as cm
+import app.handlers.control_messages as cm
 
 router = Router()
-
 
 @router.message(Command('inventory'))
 async def cmd_inventory(message: Message, bot: Bot):

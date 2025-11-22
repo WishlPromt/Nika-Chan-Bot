@@ -2,10 +2,11 @@ from aiogram import F, Router, Bot
 from aiogram.types import Message, CallbackQuery, InputMediaPhoto, InputMediaAnimation
 from aiogram.filters import Command
 
-from main_app import system
-from main_app.config import rares
+from app.main.config import config
+
+from app.main import system
 import app.content.cards as cardslib
-import app.main.keyboards as kb
+import app.content.keyboards as kb
 import app.content.inventory as inventory
 import app.content.profile as profile
 
@@ -49,50 +50,51 @@ async def cmd_select_cards_catalog(callback: CallbackQuery, bot: Bot):
 
     rare = callback.data.replace('select_cards_catalog_', '')
 
-    if rare in rares:
+    if rare in config.CARD_RARES:
         user_cards = inventory.get_cards(system.get_message_data(callback, chat_id))
 
-        if user_cards:
-            card_id = user_cards[rare][0]
+        try:
+            if user_cards:
+                card_id = user_cards[rare][0]
 
-            card_banner = await kb.inventory_card_markup(card_id,
-                                                         rare,
-                                                         system.get_message_data(callback, callback.message.chat.id))
-            if not card_banner['markup']:
-                await callback.answer('markup error')
-                return
+                card_banner = await kb.inventory_card_markup(card_id,
+                                                             rare,
+                                                             system.get_message_data(callback, callback.message.chat.id))
+                if not card_banner['markup']:
+                    await callback.answer('markup error')
+                    return
 
-            if not card_banner['text']:
-                await callback.answer('text error')
-                return
+                if not card_banner['text']:
+                    await callback.answer('text error')
+                    return
 
-            path = cardslib.load_card(card_id, rare)
+                path = cardslib.load_card(card_id, rare)
 
-            if path:
-                card = cardslib.make_card(card=card_id,
-                                          extension=path[path.find('.')+1:],
-                                          caption=card_banner['text']
-                                          )
+                if path:
+                    card = cardslib.make_card(card=card_id,
+                                              extension=path[path.find('.')+1:],
+                                              caption=card_banner['text']
+                                              )
 
-                if card:
-                    if card['type'] == 'photo':
-                        await bot.send_photo(
-                            chat_id=chat_id,
-                            photo=card['card'],
-                            caption=card['caption'],
-                            reply_markup=card_banner['markup'],
-                            parse_mode='html'
-                        )
-                    else:
-                        await bot.send_animation(
-                            chat_id=chat_id,
-                            animation=card['card'],
-                            caption=card['caption'],
-                            reply_markup=card_banner['markup'],
-                            parse_mode='html'
-                        )
-            else:
-                await callback.answer('path error')
+                    if card:
+                        if card['type'] == 'photo':
+                            await bot.send_photo(
+                                chat_id=chat_id,
+                                photo=card['card'],
+                                caption=card['caption'],
+                                reply_markup=card_banner['markup'],
+                                parse_mode='html'
+                            )
+                        else:
+                            await bot.send_animation(
+                                chat_id=chat_id,
+                                animation=card['card'],
+                                caption=card['caption'],
+                                reply_markup=card_banner['markup'],
+                                parse_mode='html'
+                            )
+        except:
+                await callback.answer('An error occurred')
 
 
 @router.callback_query(F.data.startswith('back_inventory_cards_to_rares'))

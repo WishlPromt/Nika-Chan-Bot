@@ -1,9 +1,9 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                            InlineKeyboardMarkup, InlineKeyboardButton)
-from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from app.content.inventory import *
-from main_app.system import load_base, load_items, load_votes_base
+from app.main.system import load_base, load_items, load_votes_base
 
 items_base = load_items()
 

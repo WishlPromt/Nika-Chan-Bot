@@ -1,5 +1,5 @@
 import app.content.inventory as inventory
-from main_app import system as sys
+from app.main import system as sys
 
 
 def fisting(user):

@@ -1,11 +1,11 @@
 from aiogram import F, Router, Bot
-from aiogram.types import Message, CallbackQuery, FSInputFile
-from aiogram.filters import CommandStart, Command
+from aiogram.types import Message, CallbackQuery
+from aiogram.filters import Command
 
 import app.content.votes as votes
-import app.main.keyboards as kb
-import app.main.control_messages as cm
-import main_app.system as system
+import app.content.keyboards as kb
+import app.handlers.control_messages as cm
+import app.main.system as system
 
 router = Router()
 

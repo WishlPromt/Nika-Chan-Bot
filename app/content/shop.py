@@ -1,5 +1,5 @@
-import app.main.keyboards as kb
-from main_app.system import *
+import app.content.keyboards as kb
+from app.main.system import *
 
 
 async def cmd_shop_catalog(catalog, user):

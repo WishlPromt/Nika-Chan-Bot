@@ -1,4 +1,4 @@
-from main_app.system import *
+from app.main.system import *
 from app.content.cards import load_card, get_card_rare, get_card_extension
 
 def show_profile(user):

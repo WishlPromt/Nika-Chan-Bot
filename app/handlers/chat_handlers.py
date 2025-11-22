@@ -1,11 +1,9 @@
-from aiogram import F, Router, Bot
+from aiogram import F, Router
 from aiogram.types import Message
-from main_app.model import model_response
-import app.main.control_messages as cm
-
+from app.main.model import model_response
+import app.handlers.control_messages as cm
 
 router = Router()
-
 
 @router.message(F.text.contains("Ника"))
 @router.message(F.text.contains("ника"))

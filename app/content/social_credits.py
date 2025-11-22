@@ -1,5 +1,5 @@
 from random import randint
-from main_app.system import *
+from app.main.system import *
 import app.content.inventory as inventory
 
 def work(user):
